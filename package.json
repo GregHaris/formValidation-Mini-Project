@@ -1,7 +1,7 @@
 {
-  "name": "image-carousel",
+  "name": "form-validation-mini-project",
   "version": "1.0.0",
-  "description": "The Odin Project's Image Carousel Assignment",
+  "description": "The Odin Project's Form Validation Assignment",
   "main": "index.js",
   "scripts": {
     "start": "webpack serve --open --config webpack.dev.js",
