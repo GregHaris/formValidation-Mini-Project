@@ -1,0 +1,117 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  width: 100%;
+  height: 100vh;
+}
+
+.container {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  align-items: center;
+}
+
+.container img {
+  display: none;
+  width: inherit;
+  height: inherit;
+  object-fit: cover;
+  position: fixed;
+}
+
+.container img[class="active"] {
+  display: block;
+  animation-name: fadeIn;
+  animation-duration: 1.5s;
+}
+
+.carouselNavBtn {
+  position: absolute;
+  z-index: 10;
+  background: transparent;
+  border: none;
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 5rem;
+  cursor: pointer;
+  outline: none;
+}
+
+.carouselNavBtn:hover,
+.carouselNavBtn:focus {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.next {
+  right: 0;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0.8;
+    transition: 200ms opacity ease-in-out;
+    transition-delay: 200ms;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.nav {
+  height: inherit;
+  width: inherit;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  align-content: flex-end;
+  flex-wrap: wrap;
+  align-self: self-end;
+  flex: 1;
+}
+
+.nav * {
+  z-index: 10;
+  background: rgba(44, 41, 41, 0.6);
+}
+
+.nav #desc {
+  display: flex;
+  justify-content: center;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1.5rem;
+  color: #fff;
+  width: 100%;
+  padding-top: 0.5rem;
+}
+
+.nav #dots {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.nav #dots .dot {
+  width: 10px;
+  height: 10px;
+  margin: 10px;
+  background: gray;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.nav #dots .active {
+  background: #fff;
+}
+
+
+/*# sourceMappingURL=app.css.map*/
