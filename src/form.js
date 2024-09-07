@@ -47,6 +47,33 @@ export default function createSignUpForm() {
     true,
   );
 
+  const zipcodeInput = createInputField(
+    "zipcodeInputContainer",
+    "Zipcode: ",
+    "zipcode",
+    "zipcodeInput",
+    "e.g., 12304",
+    true,
+  );
+
+  const passwordInput = createInputField(
+    "passwordInputContainer",
+    "Password: ",
+    "password",
+    "passwordInput",
+    "enter your password. mininimum of 8",
+    true,
+  );
+
+  const confirmPasswordInput = createInputField(
+    "confirmPasswordInputContainer",
+    "Confirm Password: ",
+    "confirmPassword",
+    "confirmPasswordInput",
+    "confirm your password",
+    true,
+  );
+
   const phoneNumberInput = createPhoneNumInputField(
     "phoneNumberInputContainer",
   );
@@ -61,6 +88,9 @@ export default function createSignUpForm() {
     emailInput,
     phoneNumberInput,
     countryInput,
+    zipcodeInput,
+    passwordInput,
+    confirmPasswordInput,
     submitBtn,
   );
 
