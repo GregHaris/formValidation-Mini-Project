@@ -99,6 +99,10 @@ input {
   font-family: inherit;
 }
 
+input::placeholder {
+  font-style: italic;
+}
+
 .selected-option {
   display: flex;
   align-items: center;
