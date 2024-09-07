@@ -1,4 +1,5 @@
 import { countries } from "./countriesObject.js";
+
 export default function createPhoneNumInput() {
   const phoneNumberInputContainer = document.querySelector(
     "#phoneNumberInputContainer",
@@ -20,32 +21,27 @@ export default function createPhoneNumInput() {
   inputBox.addEventListener("input", searchCountryCode);
 
   function createInputOptions() {
+    const fragment = document.createDocumentFragment();
     for (const country of countries) {
-      const option = ` 
-      <li class="option">
+      const option = document.createElement("li");
+      option.className = "option";
+      option.innerHTML = `
         <div>
           <span class="country-name">${country.name}</span>
         </div>
         <strong class="country-code">+${country.phone}</strong>
-      </li> `;
-
-      selectBox.querySelector("ol").insertAdjacentHTML("beforeend", option);
+      `;
+      option.addEventListener("click", selectOption);
+      fragment.appendChild(option);
     }
+    selectBox.querySelector("ol").appendChild(fragment);
   }
   createInputOptions();
 
-  let inputOptions = phoneNumberInputContainer.querySelectorAll(".option");
-
-  inputOptions.forEach((option) => {
-    option.addEventListener("click", selectOption);
-  });
-
   function selectOption() {
     const phoneCode = this.querySelector("strong").cloneNode(true);
-
     selectedOption.innerHTML = "";
     selectedOption.appendChild(phoneCode);
-
     inputBox.value = phoneCode.innerText;
     hideOptions();
     clearSearchBox();
@@ -63,14 +59,14 @@ export default function createPhoneNumInput() {
   }
 
   function searchCountry() {
-    let searchQuery = searchBox.value.toLowerCase();
-    for (const inputOption of inputOptions) {
-      let isMatched = inputOption
+    const searchQuery = searchBox.value.toLowerCase();
+    Array.from(selectBox.querySelectorAll(".option")).forEach((option) => {
+      const isMatched = option
         .querySelector(".country-name")
         .innerText.toLowerCase()
         .includes(searchQuery);
-      inputOption.classList.toggle("hide", !isMatched);
-    }
+      option.classList.toggle("hide", !isMatched);
+    });
     showOptions();
   }
 
@@ -86,23 +82,19 @@ export default function createPhoneNumInput() {
 
   function searchCountryCode() {
     const inputValue = inputBox.value;
-    let countryCode;
+    const countryCode = inputValue.length <= 4 ? inputValue : "";
 
-    if (inputValue.length <= 4) {
-      countryCode = inputValue;
-    } else if (inputValue.length > 4) {
-      hideOptions();
-      return;
-    } else if (inputValue.length < 4) {
-      removeClassHide();
-      return;
-    }
-
-    for (const inputOption of inputOptions) {
-      let isMatched = inputOption
+    Array.from(selectBox.querySelectorAll(".option")).forEach((option) => {
+      const isMatched = option
         .querySelector(".country-code")
         .innerText.includes(countryCode);
-      inputOption.classList.toggle("hide", !isMatched);
+      option.classList.toggle("hide", !isMatched);
+    });
+
+    if (inputValue.length > 4) {
+      hideOptions();
+    } else if (inputValue.length < 4) {
+      removeClassHide();
     }
   }
 }

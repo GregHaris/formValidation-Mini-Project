@@ -17,25 +17,26 @@ export default function createCountryInput() {
   });
 
   function createInputOptions() {
+    const fragment = document.createDocumentFragment();
     for (const country of countries) {
-      const option = ` 
-      <li class="option">
+      const option = document.createElement("li");
+      option.className = "option";
+      option.innerHTML = `
         <div>
           <iconify-icon icon="flag:${country.code.toLowerCase()}-4x3"></iconify-icon>
           <span class="country-name">${country.name}</span>
         </div>
-      </li> `;
-
-      selectBox.querySelector("ol").insertAdjacentHTML("beforeend", option);
+      `;
+      option.addEventListener("click", selectOption);
+      fragment.appendChild(option);
     }
+    selectBox.querySelector("ol").appendChild(fragment);
   }
   createInputOptions();
 
-  let inputOptions = countryInputContainer.querySelectorAll(".option");
-
-  inputOptions.forEach((option) => {
-    option.addEventListener("click", selectOption);
-  });
+  const inputOptions = Array.from(
+    countryInputContainer.querySelectorAll(".option"),
+  );
 
   function selectOption() {
     const icon = this.querySelector("iconify-icon").cloneNode(true);
@@ -74,7 +75,6 @@ export default function createCountryInput() {
         .querySelector(".country-name")
         .innerText.toLowerCase()
         .includes(searchQuery);
-
       inputOption.classList.toggle("hide", !isMatched);
     });
     showOptions();
@@ -86,7 +86,6 @@ export default function createCountryInput() {
       .forEach((el) => el.classList.remove("hide"));
   }
 
-  // Common function to handle flag update
   function handleFlagUpdate(searchQuery) {
     const matchedOption = findMatchedOption(searchQuery);
 
@@ -98,7 +97,6 @@ export default function createCountryInput() {
     }
   }
 
-  // Event listener for Enter key
   inputBox.addEventListener("keydown", (e) => {
     if (e.key === "Enter") {
       const searchQuery = inputBox.value.toLowerCase();
@@ -106,21 +104,18 @@ export default function createCountryInput() {
     }
   });
 
-  // Event listener for input losing focus
   inputBox.addEventListener("blur", () => {
     const searchQuery = inputBox.value.toLowerCase();
     handleFlagUpdate(searchQuery);
   });
 
   function findMatchedOption(searchQuery) {
-    for (const inputOption of inputOptions) {
-      if (
-        inputOption.querySelector(".country-name").innerText.toLowerCase() ===
-        searchQuery
-      ) {
-        return inputOption;
-      }
-    }
-    return null;
+    return (
+      inputOptions.find(
+        (inputOption) =>
+          inputOption.querySelector(".country-name").innerText.toLowerCase() ===
+          searchQuery,
+      ) || null
+    );
   }
 }
