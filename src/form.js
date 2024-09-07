@@ -1,6 +1,14 @@
 // forms.js
-import { createInputField, createSubmitButton } from "./formElementFactory.js";
+import {
+  createInputField,
+  createSubmitButton,
+  createPhoneNumInputField,
+  createCountryNameInputField,
+} from "./formElementFactory.js";
 import cacheDOM from "./domUtils.js";
+
+import createPhoneNumInput from "./phoneNumberInput.js";
+import createCountryInput from "./countryInput.js";
 
 export default function createSignUpForm() {
   const { formContainer } = cacheDOM();
@@ -32,15 +40,32 @@ export default function createSignUpForm() {
 
   const emailInput = createInputField(
     "emailInputContainer",
-    "email: ",
+    "Email: ",
     "email",
     "emailInput",
     "e.g., youremail@example.com",
     true,
   );
 
+  const phoneNumberInput = createPhoneNumInputField(
+    "phoneNumberInputContainer",
+  );
+
+  const countryInput = createCountryNameInputField("countryInputContainer");
+
   const submitBtn = createSubmitButton("SubmitBtnContainer", "Submit");
 
-  SignUpform.append(firstNameInput, lastNameInput, emailInput, submitBtn);
+  SignUpform.append(
+    firstNameInput,
+    lastNameInput,
+    emailInput,
+    phoneNumberInput,
+    countryInput,
+    submitBtn,
+  );
+
   formContainer.append(SignUpform);
+
+  createPhoneNumInput();
+  createCountryInput();
 }
