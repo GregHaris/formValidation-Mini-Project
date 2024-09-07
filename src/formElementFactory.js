@@ -30,7 +30,10 @@ export const createPhoneNumInputField = (
 ) => {
   const container = document.createElement("div");
   container.id = containerID;
-  container.className = "select-box";
+
+  const inputContainer = document.createElement("div");
+  inputContainer.id = "selectBox";
+  inputContainer.className = "select-box";
 
   const label = document.createElement("label");
   label.htmlFor = "phoneNumInput";
@@ -67,7 +70,9 @@ export const createPhoneNumInputField = (
 
   options.append(searchBox, ol);
 
-  container.append(label, selectedOption, options);
+  inputContainer.append(selectedOption, options);
+
+  container.append(label, inputContainer);
   return container;
 };
 
@@ -78,7 +83,10 @@ export const createCountryNameInputField = (
 ) => {
   const container = document.createElement("div");
   container.id = containerID;
-  container.className = "select-box";
+
+  const inputContainer = document.createElement("div");
+  inputContainer.id = "selectBox";
+  inputContainer.className = "select-box";
 
   const label = document.createElement("label");
   label.htmlFor = "countryNameInput";
@@ -96,7 +104,7 @@ export const createCountryNameInputField = (
   const countryInput = document.createElement("input");
   countryInput.type = "text";
   countryInput.name = "countryNameInput";
-  countryInput.id = "CountryNameInput";
+  countryInput.id = "countryNameInput";
   countryInput.placeholder = placeholder;
 
   selectedCountry.append(countryIconDiv, countryInput);
@@ -109,7 +117,9 @@ export const createCountryNameInputField = (
 
   countryOptions.append(ol);
 
-  container.append(label, selectedCountry, countryOptions);
+  inputContainer.append(selectedCountry, countryOptions);
+
+  container.append(label, inputContainer);
   return container;
 };
 
