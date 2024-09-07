@@ -23,6 +23,96 @@ export const createInputField = (
   return container;
 };
 
+export const createPhoneNumInputField = (
+  containerID,
+  defaultCountryCode = "+44",
+  placeholder = "e.g +18100043",
+) => {
+  const container = document.createElement("div");
+  container.id = containerID;
+  container.className = "select-box";
+
+  const label = document.createElement("label");
+  label.htmlFor = "phoneNumInput";
+  label.textContent = "Phone Number: ";
+
+  const selectedOption = document.createElement("div");
+  selectedOption.className = "selected-option";
+  selectedOption.id = "selectedOption";
+
+  const countryCodeDiv = document.createElement("div");
+  const countryCode = document.createElement("strong");
+  countryCode.textContent = defaultCountryCode;
+  countryCodeDiv.appendChild(countryCode);
+
+  const phoneInput = document.createElement("input");
+  phoneInput.type = "tel";
+  phoneInput.name = "tel";
+  phoneInput.id = "phoneNumInput";
+  phoneInput.placeholder = placeholder;
+
+  selectedOption.append(countryCodeDiv, phoneInput);
+
+  const options = document.createElement("div");
+  options.className = "options";
+  options.id = "options";
+
+  const searchBox = document.createElement("input");
+  searchBox.type = "text";
+  searchBox.className = "search-box";
+  searchBox.id = "searchBox";
+  searchBox.placeholder = "Search Country name";
+
+  const ol = document.createElement("ol");
+
+  options.append(searchBox, ol);
+
+  container.append(label, selectedOption, options);
+  return container;
+};
+
+export const createCountryNameInputField = (
+  containerID,
+  defaultCountryIcon = "flag:gb-4x3",
+  placeholder = "e.g United Kingdom",
+) => {
+  const container = document.createElement("div");
+  container.id = containerID;
+  container.className = "select-box";
+
+  const label = document.createElement("label");
+  label.htmlFor = "countryNameInput";
+  label.textContent = "Country: ";
+
+  const selectedCountry = document.createElement("div");
+  selectedCountry.className = "selected-option";
+  selectedCountry.id = "selectedCountry";
+
+  const countryIconDiv = document.createElement("div");
+  const countryIcon = document.createElement("iconify-icon");
+  countryIcon.setAttribute("icon", defaultCountryIcon);
+  countryIconDiv.appendChild(countryIcon);
+
+  const countryInput = document.createElement("input");
+  countryInput.type = "text";
+  countryInput.name = "countryNameInput";
+  countryInput.id = "CountryNameInput";
+  countryInput.placeholder = placeholder;
+
+  selectedCountry.append(countryIconDiv, countryInput);
+
+  const countryOptions = document.createElement("div");
+  countryOptions.className = "options";
+  countryOptions.id = "countryOptions";
+
+  const ol = document.createElement("ol");
+
+  countryOptions.append(ol);
+
+  container.append(label, selectedCountry, countryOptions);
+  return container;
+};
+
 export const createSubmitButton = (containerID, buttonText) => {
   const container = document.createElement("div");
   container.id = containerID;
