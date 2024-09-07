@@ -24,7 +24,7 @@ export default function createSignUpForm() {
     "firstNameInputContainer",
     "First Name: ",
     "text",
-    "nameInput",
+    "firstNameInput",
     "e.g., Samuel",
     true,
   );
@@ -33,7 +33,7 @@ export default function createSignUpForm() {
     "lastNameInputContainer",
     "Last Name: ",
     "text",
-    "nameInput",
+    "lastNameInput",
     "e.g., John",
     true,
   );
