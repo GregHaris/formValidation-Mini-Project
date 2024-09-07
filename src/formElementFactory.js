@@ -25,7 +25,7 @@ export const createInputField = (
 
 export const createPhoneNumInputField = (
   containerID,
-  defaultCountryCode = "+44",
+  defaultCountryCode = "+1",
   placeholder = "e.g +18100043",
 ) => {
   const container = document.createElement("div");
