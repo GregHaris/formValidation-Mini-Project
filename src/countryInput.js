@@ -77,7 +77,6 @@ export default function createCountryInput() {
         .includes(searchQuery);
       inputOption.classList.toggle("hide", !isMatched);
     });
-    showOptions();
   }
 
   function removeClassHide() {

@@ -67,7 +67,6 @@ export default function createPhoneNumInput() {
         .includes(searchQuery);
       option.classList.toggle("hide", !isMatched);
     });
-    showOptions();
   }
 
   function clearSearchBox() {
