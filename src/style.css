@@ -1,7 +1,8 @@
 :root {
   --space: 0.5em;
   --primary-clr: #111;
-  --light-bg-clr: rgba(0, 0, 0, 0.1);
+  --light-bg-clr: rgb(236, 234, 234);
+  --primary-bg-clr: rgb(70, 205, 217);
 }
 
 * {
@@ -11,16 +12,30 @@
 }
 
 body {
-  /*  background: var(--secondary-clr); */
   width: 100%;
   height: 100vh;
-  padding: 5em;
+  color: var(--primary-clr);
 }
 
 .container {
-  /* margin: 3rem auto; */
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  align-items: center;
   width: 100%;
-  /* height: 100%; */
+  height: 100%;
+  padding: 2em;
+}
+
+.form-heading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+h1 {
+  font-size: 3rem;
 }
 
 .headingText {
@@ -33,11 +48,38 @@ body {
   border-radius: 2em;
 }
 
+form {
+}
+
+label {
+  position: relative;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+label:not(input[type="tel"])::after,
 .dot {
-  width: var(--space);
-  height: var(--space);
+  width: 10px;
+  height: 10px;
   background: red;
   border-radius: 50%;
+}
+
+label:not([for="phoneNumInput"])::after {
+  content: "";
+  position: absolute;
+  right: -0.7rem;
+}
+
+form > div:not(#SubmitBtnContainer) {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space);
+  align-items: flex-start;
+}
+
+form > div {
+  margin-bottom: 1.5rem;
 }
 
 /*PhoneNumber input with country code & flag styles  */
@@ -46,12 +88,18 @@ body {
   width: 350px;
 }
 
-.select-box input {
+input:not(#countryNameInput, #phoneNumInput) {
+  width: 350px;
+  border-radius: var(--space);
+}
+
+input {
   padding: 0.6rem 0.6rem;
   font-size: 1rem;
   width: 100%;
   outline: none;
   border: 1px solid var(--primary-clr);
+  font-family: inherit;
 }
 
 .selected-option {
@@ -95,13 +143,14 @@ body {
 
 .select-box .options {
   position: absolute;
-  top: 4rem;
+  top: 3rem;
 
   display: none;
   width: 100%;
   border: 0.1rem solid transparent;
   border-radius: 0.5rem;
   background-color: var(--light-bg-clr);
+  z-index: 10;
 }
 
 .select-box .options:before {
@@ -168,4 +217,22 @@ body {
 
 .select-box ol li .country-name {
   margin-left: 0.5rem;
+}
+
+#SubmitBtnContainer {
+  text-align: center;
+}
+
+#SubmitBtnContainer button {
+  padding: 0.5em 2em;
+  border: none;
+  border-radius: var(--space);
+  font-size: 1.3rem;
+  color: var(--light-bg-clr);
+  background-color: var(--primary-bg-clr);
+  cursor: pointer;
+}
+
+#SubmitBtnContainer button:hover {
+  opacity: 0.9;
 }
