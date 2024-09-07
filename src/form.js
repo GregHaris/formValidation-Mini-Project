@@ -61,7 +61,7 @@ export default function createSignUpForm() {
     "Password: ",
     "password",
     "passwordInput",
-    "enter your password. mininimum of 8",
+    "enter your password. minimum of 8 characters",
     true,
   );
 
