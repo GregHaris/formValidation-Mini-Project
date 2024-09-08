@@ -1,0 +1,258 @@
+:root {
+  --space: 0.5em;
+  --primary-clr: #111;
+  --light-bg-clr: rgb(236, 234, 234);
+  --primary-bg-clr: rgb(70, 205, 217);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  width: 100%;
+  height: 100vh;
+  color: var(--primary-clr);
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  padding: 2em;
+}
+
+.form-heading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+h1 {
+  font-size: 3rem;
+}
+
+.headingText {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: var(--space);
+  background: var(--light-bg-clr);
+  width: 250px;
+  border-radius: 2em;
+}
+
+.error-message {
+  display: none;
+  color: red;
+  font-style: italic;
+  font-weight: 600;
+  margin-bottom: var(--space);
+}
+
+label {
+  position: relative;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+label:not(input[type="tel"])::after,
+.dot {
+  width: 10px;
+  height: 10px;
+  background: red;
+  border-radius: 50%;
+}
+
+label:not([for="phoneNumInput"])::after {
+  content: "";
+  position: absolute;
+  right: -0.7rem;
+}
+
+form > div:not(#SubmitBtnContainer) {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space);
+  align-items: flex-start;
+}
+
+form > div {
+  margin-bottom: 1.5rem;
+}
+
+/*PhoneNumber input with country code & flag styles  */
+.select-box {
+  position: relative;
+  width: 350px;
+}
+
+input:not(#countryNameInput, #phoneNumInput) {
+  width: 350px;
+  border-radius: var(--space);
+}
+
+input {
+  padding: 0.6rem 0.6rem;
+  font-size: 1rem;
+  width: 100%;
+  outline: none;
+  border: 1px solid var(--primary-clr);
+  font-family: inherit;
+}
+
+input::placeholder {
+  font-style: italic;
+}
+
+.isInvalid {
+  border-color: red;
+}
+
+.isInvalid::placeholder {
+  color: red;
+  font-weight: 600;
+}
+
+.selected-option {
+  display: flex;
+  align-items: center;
+  background-color: var(--light-bg-clr);
+  border-radius: 0.5rem;
+}
+
+.selected-option input {
+  border-radius: 0 0.5rem 0.5rem 0;
+}
+
+.selected-option div {
+  text-align: center;
+  width: 6rem;
+  padding: 0.2rem 2.8rem 0 0.5rem;
+  cursor: pointer;
+  position: relative;
+}
+
+.selected-option div::after {
+  position: absolute;
+  content: "";
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%) rotate(45deg);
+
+  width: 0.8rem;
+  height: 0.8rem;
+  border-right: 0.12rem solid var(--primary-clr);
+  border-bottom: 0.12rem solid var(--primary-clr);
+  transition: 0.2s;
+}
+
+.selected-option div.active::after {
+  transform: translateY(-50%) rotate(225deg);
+}
+
+.select-box .options {
+  position: absolute;
+  top: 3rem;
+
+  display: none;
+  width: 100%;
+  border: 0.1rem solid transparent;
+  border-radius: 0.5rem;
+  background-color: var(--light-bg-clr);
+  z-index: 10;
+}
+
+.select-box .options:before {
+  position: absolute;
+  content: "";
+  left: 1rem;
+  top: -1.1rem;
+
+  width: 0;
+  height: 0;
+  border: 0.6rem solid transparent;
+  border-bottom-color: var(--primary-clr);
+}
+
+.error-message.active,
+.select-box .options.active {
+  display: block;
+}
+
+.select-box .options .search-box {
+  border: none;
+  background: var(--primary-clr);
+  color: #fff;
+  border-radius: 0.5rem 0.5rem 0 0;
+  padding: 1.2rem 1rem;
+}
+
+.select-box ol {
+  list-style: none;
+  max-height: 22rem;
+  overflow: overlay;
+  scrollbar-width: thin;
+  scrollbar-color: var(--light-bg-clr) var(--light-bg-clr);
+}
+
+.select-box ol li {
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  cursor: pointer;
+}
+
+.select-box ol li.hide {
+  display: none;
+}
+
+.select-box ol li:not(:last-child) {
+  border-bottom: 0.1rem solid #fff;
+}
+
+.select-box ol li:hover {
+  background-color: #fff;
+}
+
+.select-box ol::-webkit-scrollbar {
+  width: 0.4rem;
+}
+
+.select-box ol::-webkit-scrollbar-thumb {
+  width: 0.4rem;
+  height: 3rem;
+  background-color: var(--light-bg-clr);
+  border-radius: 0.4rem;
+}
+
+.select-box ol li .country-name {
+  margin-left: 0.5rem;
+}
+
+#SubmitBtnContainer {
+  text-align: center;
+}
+
+#SubmitBtnContainer button {
+  padding: 0.5em 2em;
+  border: none;
+  border-radius: var(--space);
+  font-size: 1.3rem;
+  color: var(--light-bg-clr);
+  background-color: var(--primary-bg-clr);
+  cursor: pointer;
+}
+
+#SubmitBtnContainer button:hover {
+  opacity: 0.9;
+}
+
+
+/*# sourceMappingURL=app.css.map*/
