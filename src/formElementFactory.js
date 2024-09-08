@@ -16,6 +16,7 @@ export const createInputField = (
   const input = document.createElement("input");
   input.type = inputType;
   input.id = inputId;
+  input.name = inputId;
   input.placeholder = placeholder;
   if (required) input.required = true;
 
