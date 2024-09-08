@@ -6,19 +6,15 @@ import {
   createCountryNameInputField,
 } from "./formElementFactory.js";
 import cacheDOM from "./domUtils.js";
-
 import createPhoneNumInput from "./phoneNumberInput.js";
 import createCountryInput from "./countryInput.js";
+import formValidation from "./validation.js";
 
 export default function createSignUpForm() {
   const { formContainer } = cacheDOM();
 
   const SignUpform = document.createElement("form");
   SignUpform.noValidate = true;
-
-  SignUpform.addEventListener("submit", (e) => {
-    e.preventDefault();
-  });
 
   const firstNameInput = createInputField(
     "firstNameInputContainer",
@@ -98,4 +94,6 @@ export default function createSignUpForm() {
 
   createPhoneNumInput();
   createCountryInput();
+  return { SignUpform };
 }
+formValidation();
