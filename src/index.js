@@ -1,5 +1,5 @@
 import "./style.css";
 import "iconify-icon";
-import createSignUpForm from "./form.js";
+import formValidation from "./validation";
 
-createSignUpForm();
+formValidation();
