@@ -48,6 +48,14 @@ h1 {
   border-radius: 2em;
 }
 
+.error-message {
+  display: none;
+  color: red;
+  font-style: italic;
+  font-weight: 600;
+  margin-bottom: var(--space);
+}
+
 label {
   position: relative;
   font-size: 1.5rem;
@@ -165,6 +173,7 @@ input::placeholder {
   border-bottom-color: var(--primary-clr);
 }
 
+.error-message.active,
 .select-box .options.active {
   display: block;
 }
