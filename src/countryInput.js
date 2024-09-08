@@ -46,6 +46,7 @@ export default function createCountryInput() {
     selectedCountry.appendChild(icon);
 
     inputBox.value = country.innerText;
+    inputBox.focus();
     hideOptions();
     removeClassHide();
   }

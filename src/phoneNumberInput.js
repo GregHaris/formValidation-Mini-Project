@@ -43,6 +43,7 @@ export default function createPhoneNumInput() {
     selectedOption.innerHTML = "";
     selectedOption.appendChild(phoneCode);
     inputBox.value = phoneCode.innerText;
+    inputBox.focus();
     hideOptions();
     clearSearchBox();
     removeClassHide();
