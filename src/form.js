@@ -78,8 +78,6 @@ export default function createsignUpform() {
 
   const countryInput = createCountryNameInputField("countryInputContainer");
 
-  const errorMessageDown = errorMessageParagragh();
-
   const submitBtn = createSubmitButton("SubmitBtnContainer", "Submit");
 
   signUpform.append(
@@ -92,7 +90,6 @@ export default function createsignUpform() {
     zipcodeInput,
     passwordInput,
     confirmPasswordInput,
-    errorMessageDown,
     submitBtn,
   );
 
