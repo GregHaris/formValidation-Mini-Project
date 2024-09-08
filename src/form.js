@@ -48,7 +48,7 @@ export default function createsignUpform() {
   const zipcodeInput = createInputField(
     "zipcodeInputContainer",
     "Zipcode: ",
-    "zipcode",
+    "text",
     "zipcodeInput",
     "e.g., 12304",
     true,
@@ -57,7 +57,7 @@ export default function createsignUpform() {
   const passwordInput = createInputField(
     "passwordInputContainer",
     "Password: ",
-    "password",
+    "text",
     "passwordInput",
     "enter your password. minimum of 8 characters",
     true,
@@ -66,7 +66,7 @@ export default function createsignUpform() {
   const confirmPasswordInput = createInputField(
     "confirmPasswordInputContainer",
     "Confirm Password: ",
-    "confirmPassword",
+    "text",
     "confirmPasswordInput",
     "confirm your password",
     true,
