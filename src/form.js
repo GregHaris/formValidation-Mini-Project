@@ -57,7 +57,7 @@ export default function createsignUpform() {
   const passwordInput = createInputField(
     "passwordInputContainer",
     "Password: ",
-    "text",
+    "password",
     "passwordInput",
     "enter your password. minimum of 8 characters",
     true,
@@ -66,7 +66,7 @@ export default function createsignUpform() {
   const confirmPasswordInput = createInputField(
     "confirmPasswordInputContainer",
     "Confirm Password: ",
-    "text",
+    "password",
     "confirmPasswordInput",
     "confirm your password",
     true,
