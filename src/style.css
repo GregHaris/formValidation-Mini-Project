@@ -111,11 +111,19 @@ input::placeholder {
   font-style: italic;
 }
 
+.isInvalid {
+  border-color: red;
+}
+
+.isInvalid::placeholder {
+  color: red;
+  font-weight: 600;
+}
+
 .selected-option {
   display: flex;
   align-items: center;
   background-color: var(--light-bg-clr);
-
   border-radius: 0.5rem;
 }
 
