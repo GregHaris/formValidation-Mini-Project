@@ -116,6 +116,7 @@ export const createCountryNameInputField = (
   countryInput.name = "countryNameInput";
   countryInput.id = "countryNameInput";
   countryInput.placeholder = placeholder;
+  countryInput.required = true;
 
   selectedCountry.append(countryIconDiv, countryInput);
 
