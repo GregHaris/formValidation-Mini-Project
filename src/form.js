@@ -1,5 +1,6 @@
 // forms.js
 import {
+  errorMessageParagragh,
   createInputField,
   createSubmitButton,
   createPhoneNumInputField,
@@ -8,13 +9,14 @@ import {
 import cacheDOM from "./domUtils.js";
 import createPhoneNumInput from "./phoneNumberInput.js";
 import createCountryInput from "./countryInput.js";
-import formValidation from "./validation.js";
 
 export default function createSignUpForm() {
   const { formContainer } = cacheDOM();
 
   const SignUpform = document.createElement("form");
   SignUpform.noValidate = true;
+
+  const errorMessageTop = errorMessageParagragh();
 
   const firstNameInput = createInputField(
     "firstNameInputContainer",
@@ -76,9 +78,12 @@ export default function createSignUpForm() {
 
   const countryInput = createCountryNameInputField("countryInputContainer");
 
+  const errorMessageDown = errorMessageParagragh();
+
   const submitBtn = createSubmitButton("SubmitBtnContainer", "Submit");
 
   SignUpform.append(
+    errorMessageTop,
     firstNameInput,
     lastNameInput,
     emailInput,
@@ -87,6 +92,7 @@ export default function createSignUpForm() {
     zipcodeInput,
     passwordInput,
     confirmPasswordInput,
+    errorMessageDown,
     submitBtn,
   );
 
@@ -96,4 +102,3 @@ export default function createSignUpForm() {
   createCountryInput();
   return { SignUpform };
 }
-formValidation();

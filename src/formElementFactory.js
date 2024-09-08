@@ -1,4 +1,13 @@
 // formUtility.js
+
+export const errorMessageParagragh = () => {
+  const para = document.createElement("div");
+  para.textContent = "Error: please fill up all required fields";
+  para.className = "error-message";
+  para.id = "errorMessage";
+  return para;
+};
+
 export const createInputField = (
   containerID,
   labelText,
