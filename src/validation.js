@@ -6,7 +6,10 @@ const errorMessage = signUpform.querySelector("#errorMessage");
 export default function formValidation() {
   signUpform.addEventListener("submit", (e) => {
     e.preventDefault();
-    validate();
+    const isValid = validate();
+    if (isValid) {
+      signUpform.submit();
+    }
   });
 }
 
@@ -63,7 +66,6 @@ function validate() {
 
   if (isValid) {
     alert("Congratulations. We will get in touch with you");
-    signUpform.submit();
   }
 }
 
