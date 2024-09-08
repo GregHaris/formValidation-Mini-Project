@@ -16,10 +16,6 @@ export default function createSignUpForm() {
   const SignUpform = document.createElement("form");
   SignUpform.noValidate = true;
 
-  SignUpform.addEventListener("submit", (e) => {
-    e.preventDefault();
-  });
-
   const firstNameInput = createInputField(
     "firstNameInputContainer",
     "First Name: ",
@@ -98,4 +94,6 @@ export default function createSignUpForm() {
 
   createPhoneNumInput();
   createCountryInput();
+
+  return SignUpform;
 }
