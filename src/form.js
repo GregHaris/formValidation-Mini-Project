@@ -10,11 +10,11 @@ import cacheDOM from "./domUtils.js";
 import createPhoneNumInput from "./phoneNumberInput.js";
 import createCountryInput from "./countryInput.js";
 
-export default function createSignUpForm() {
+export default function createsignUpform() {
   const { formContainer } = cacheDOM();
 
-  const SignUpform = document.createElement("form");
-  SignUpform.noValidate = true;
+  const signUpform = document.createElement("form");
+  signUpform.noValidate = true;
 
   const errorMessageTop = errorMessageParagragh();
 
@@ -82,7 +82,7 @@ export default function createSignUpForm() {
 
   const submitBtn = createSubmitButton("SubmitBtnContainer", "Submit");
 
-  SignUpform.append(
+  signUpform.append(
     errorMessageTop,
     firstNameInput,
     lastNameInput,
@@ -96,9 +96,9 @@ export default function createSignUpForm() {
     submitBtn,
   );
 
-  formContainer.append(SignUpform);
+  formContainer.append(signUpform);
 
   createPhoneNumInput();
   createCountryInput();
-  return { SignUpform };
+  return { signUpform };
 }
