@@ -1,4 +1,3 @@
-// forms.js
 import {
   errorMessageParagragh,
   createInputField,
